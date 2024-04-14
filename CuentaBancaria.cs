@@ -8,7 +8,8 @@
         public DateTime fecha { get; set; }
         public List<Operaciones> Loperaciones { get; set; }
         public Usuario usuario { get; set; }
-        
+
+         
         public CuentaBancaria() { }
 
         public CuentaBancaria(int nroCuenta, double saldoActual, DateTime fecha,List<Operaciones>loperaciones ,Usuario usuario)

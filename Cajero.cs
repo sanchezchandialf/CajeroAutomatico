@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace CajeroAutomatico
         public string adress { get; set; }
         public int NroCajero{get;set;}
 
+        public List <CuentaBancaria> cuentasCreadasCajeros=new List <CuentaBancaria> ();
         public Cajero() { }
         public Cajero(string adress, int nroCajero)
         {
@@ -34,13 +36,26 @@ namespace CajeroAutomatico
             CuentaBancaria cuentanueva = new CuentaBancaria();
             int nuevo = cuentanueva.nroCuenta + 1;
             
-            CuentaBancaria cuentaBancaria = new CuentaBancaria(nuevo, 0, DateTime.Now,nuevalistadeoperaciones, nuevousuario);
+            CuentaBancaria cuentabancaria = new CuentaBancaria(nuevo, 0, DateTime.Now,nuevalistadeoperaciones, nuevousuario);
+            
             Console.WriteLine("CUENTA CREADA CON EXITO");
-            Console.WriteLine(cuentaBancaria.ToString());
+            Console.WriteLine(cuentabancaria.ToString());
+            cuentasCreadasCajeros.Add(cuentabancaria);
+            
     }
-        public void Deposito(double valor )
+        public void Deposito(double valor,CuentaBancaria cuenta )
         {
-             
+             cuenta.SaldoActual +=valor;
         }
+        public void Extraer(double valor, CuentaBancaria cuenta)
+        {
+            cuenta.SaldoActual -= valor;
+        }
+
+        public void Preacordada(string orden,double valor,CuentaBancaria cuenta)
+        {
+            cuenta.SaldoActual -= valor;
+        }
+        
     }
 }
