@@ -36,7 +36,7 @@ namespace CajeroAutomatico
             CuentaBancaria cuentanueva = new CuentaBancaria();
             int nuevo = cuentanueva.nroCuenta + 1;
             
-            CuentaBancaria cuentabancaria = new CuentaBancaria(nuevo, 0, DateTime.Now,nuevalistadeoperaciones, nuevousuario);
+            CuentaBancaria cuentabancaria = new CuentaBancaria( nuevousuario);
             
             Console.WriteLine("CUENTA CREADA CON EXITO");
             Console.WriteLine(cuentabancaria.ToString());
@@ -52,7 +52,7 @@ namespace CajeroAutomatico
             cuenta.SaldoActual -= valor;
         }
 
-        public void Preacordada(string orden,double valor,CuentaBancaria cuenta)
+        public void Preacordada(double valor,CuentaBancaria cuenta)
         {
             cuenta.SaldoActual -= valor;
         }

@@ -12,12 +12,12 @@
          
         public CuentaBancaria() { }
 
-        public CuentaBancaria(int nroCuenta, double saldoActual, DateTime fecha,List<Operaciones>loperaciones ,Usuario usuario)
+        public CuentaBancaria(Usuario usuario)
         {
             this.nroCuenta = ++ultimacuenta;
-            SaldoActual = saldoActual;
-            this.fecha = fecha;
-            this.Loperaciones = loperaciones;
+            SaldoActual = 0;
+            this.fecha = DateTime.Now;
+            this.Loperaciones=new List<Operaciones> ();
             this.usuario = usuario;
         }
         public override string ToString()
