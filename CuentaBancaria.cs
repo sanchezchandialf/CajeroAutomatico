@@ -2,7 +2,7 @@
 {
     public class CuentaBancaria
     {
-        public int nroCuenta {get;set;}
+        public int nroCuenta = 0;
         public double SaldoActual { get; set; }
         public DateTime fecha { get; set; }
         public List<Operaciones> Loperaciones { get; set; }
@@ -17,6 +17,10 @@
             this.fecha = fecha;
             this.Loperaciones = loperaciones;
             this.usuario = usuario;
+        }
+        public override string ToString()
+        {
+            return base.ToString();
         }
         public void deposito(double monto)
         {
